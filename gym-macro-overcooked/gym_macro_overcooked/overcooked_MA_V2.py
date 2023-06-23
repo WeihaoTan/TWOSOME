@@ -217,33 +217,6 @@ class Overcooked_MA_V2(Overcooked_V3):
             mac_done = mac_done[0]
             discount_factor *= 0.99
         info['macro_action_steps'] = macro_action_steps
-
-
-        # mac_done = False
-        # reward = 0
-        # macro_action_steps = 0
-        # discount_factor = 1
-
-        # #while not mac_done:
-        # macro_action_steps += 1
-        # if not isinstance(macro_actions, list):
-        #     macro_actions = [macro_actions]
-        # actions = self._computeLowLevelActions(macro_actions)
-        
-        # obs, rewards, terminate, info = self.step(actions)
-        # reward += discount_factor * rewards[0] if self.n_agent == 1 else rewards
-
-        # self._checkMacroActionDone()
-        # self._checkCollision(info)
-        # cur_mac = self._collectCurMacroActions()
-        # mac_done = self._computeMacroActionDone()
-
-        # self._createMacroActionItemList()
-
-        # mac_done = mac_done[0]
-        # discount_factor *= 0.99
-        # info['macro_action_steps'] = macro_action_steps
-        # info['mac_done'] = mac_done
         return  self._get_macro_obs(), reward, terminate, info
 
     def _checkCollision(self, info):

@@ -24,7 +24,7 @@ cd virtualhome
 pip install -e .
 ```
 
-# Running the code
+# Run the code
 ```
 
 # 1. For Tomato Salad environment
@@ -42,4 +42,11 @@ sh scripts/heat_pancake_ppo.sh # train PPO in Heat Pancake environment
 # 4. For Watch TV environment
 sh scripts/watch_tv_ppo_llm.sh # train TWOSOME in Watch TV environment
 sh scripts/watch_tv_ppo.sh # train PPO in Watch TV environment
+
+You can change the attribute, 'normalization-mode' in [sum, toekn, word], corresponding to TWOSOME without normalization, TWOSOME with token normalization and TWOSOME with word normalization
+
 ```
+
+# ENV
+Overcooked env is adapted from <https://github.com/WeihaoTan/gym-macro-overcooked>.
+VirtualHome is adapted from <https://github.com/xavierpuigf/virtualhome>.
