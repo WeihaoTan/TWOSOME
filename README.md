@@ -48,5 +48,5 @@ You can change the attribute, 'normalization-mode' in [sum, toekn, word], corres
 ```
 
 # ENV
-Overcooked env is adapted from <https://github.com/WeihaoTan/gym-macro-overcooked>.
+Overcooked env is adapted from <https://github.com/WeihaoTan/gym-macro-overcooked>.   
 VirtualHome is adapted from <https://github.com/xavierpuigf/virtualhome>.
