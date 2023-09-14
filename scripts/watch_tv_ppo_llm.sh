@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 \
+CUDA_VISIBLE_DEVICES=1 \
 python twosome/virtualhome/ppo_llm_v2.py \
   --exp-name "watch_tv_ppo_llm"\
   --policy-learning-rate 1e-6 \
@@ -15,4 +15,5 @@ python twosome/virtualhome/ppo_llm_v2.py \
   --env-id "VirtualHome-v2" \
   --record-path "workdir" \
   --normalization-mode "word" \
-  --gamma 0.95
+  --gamma 0.95 \
+  --seed 100

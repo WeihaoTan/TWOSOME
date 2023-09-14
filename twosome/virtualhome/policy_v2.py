@@ -136,21 +136,22 @@ class LLMAgent(nn.Module):
             critic.v_head.load_state_dict(torch.load(critic_weights, map_location= "cpu"))
         return critic
 
-
     def save(self, epoch, exp_path):
+        print("save model")
         exp_path = os.path.join(exp_path, "epoch_{:04d}".format(epoch))
 
         os.makedirs(exp_path, exist_ok=True)
         # save lora
         self.actor.save_pretrained(exp_path)
         # save critic
-        torch.save(self.critic.v_head.state_dict(), os.path.join(exp_path, "critic.pth"))
+        # torch.save(self.critic.v_head.state_dict(), os.path.join(exp_path, "critic.pth"))
 
     def load(self, exp_path):
+        print("load model")
         lora_weights = exp_path
-        critic_weights = os.path.join(exp_path, "critic.pth")
+        # critic_weights = os.path.join(exp_path, "critic.pth")
         self.actor = self._init_actor(lora_weights).to(self.device)
-        self.critic = self._init_critic(critic_weights).to(self.device)
+        # self.critic = self._init_critic(critic_weights).to(self.device)
     
     def get_value(self, x):
         if type(x) != list:

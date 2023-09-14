@@ -15,4 +15,5 @@ python twosome/virtualhome/ppo_llm_v1.py \
   --env-id "VirtualHome-v1" \
   --record-path "workdir" \
   --normalization-mode "word" \
-  --gamma 0.95
+  --gamma 0.95 \
+  --seed 10

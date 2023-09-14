@@ -370,7 +370,7 @@ if __name__ == "__main__":
         print("SPS:", global_step, (time.time() - start_time))
         writer.add_scalar("charts/SPS", global_step / (time.time() - start_time), global_step)
 
-    agent.save(num_updates, args.save_path)
+        agent.save(global_step // 1000, f"{args.record_path}/{run_name}/{args.save_path}")
     
     envs.close()
     writer.close()
