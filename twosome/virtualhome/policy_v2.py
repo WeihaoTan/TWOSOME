@@ -131,7 +131,7 @@ class LLMAgent(nn.Module):
         return model
 
     def _init_critic(self, critic_weights = None):
-        critic = Critic(self.llama, self.tokenizer)
+        critic = Critic(self.actor, self.tokenizer)
         if critic_weights is not None:
             critic.v_head.load_state_dict(torch.load(critic_weights, map_location= "cpu"))
         return critic
@@ -156,10 +156,14 @@ class LLMAgent(nn.Module):
     def get_value(self, x):
         if type(x) != list:
             x = [self.obs2text(o)["prompt"] for o in x]
+            
         inputs = self.tokenizer(x, return_tensors="pt", padding=True)
         input_ids = inputs["input_ids"].to(self.device)
         attention_mask = inputs["attention_mask"]
-        return self.critic(input_ids, attention_mask=attention_mask)
+        
+        with self.actor.disable_adapter():
+            value = self.critic(input_ids, attention_mask=attention_mask)
+        return value
 
     def get_action_and_value(self, obs, action=None, is_warmup=False, return_value = True):
         text_obs = [self.obs2text(o) for o in obs]
