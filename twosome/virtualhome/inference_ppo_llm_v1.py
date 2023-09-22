@@ -44,7 +44,6 @@ def inference(obs, agent, device):
     for p, ac in zip(prompt, action_list):
         sequence += [p + " " + a for a in ac]
 
-
     print("sequence", sequence)
 
     inputs = agent.tokenizer(sequence, return_tensors="pt", padding=True)
