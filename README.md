@@ -35,13 +35,13 @@ sh scripts/tomato_salad_ppo.sh # train PPO in Tomato Salad environment
 sh scripts/tomato_salad_lettuce_ppo_llm.sh # train TWOSOME in Tomato Lettuce Salad environment
 sh scripts/tomato_salad_lettuce_ppo.sh # train PPO in Tomato Lettuce Salad environment
 
-# 3. For Heat Pancake environment
-sh scripts/heat_pancake_ppo_llm.sh # train TWOSOME in Heat Pancake environment
-sh scripts/heat_pancake_ppo.sh # train PPO in Heat Pancake environment
+# 3. For Food Preparation environment
+sh scripts/food_preparation_ppo_llm.sh # train TWOSOME in Food Preparation environment
+sh scripts/food_preparation_ppo.sh # train PPO in Food Preparation environment
 
-# 4. For Watch TV environment
-sh scripts/watch_tv_ppo_llm.sh # train TWOSOME in Watch TV environment
-sh scripts/watch_tv_ppo.sh # train PPO in Watch TV environment
+# 4. For Entertainment environment
+sh scripts/entertainment_ppo_llm.sh # train TWOSOME in Entertainment environment
+sh scripts/entertainment_ppo.sh # train PPO in Entertainment environment
 
 You can change the attribute, 'normalization-mode' in [sum, toekn, word], corresponding to TWOSOME without normalization, TWOSOME with token normalization and TWOSOME with word normalization
 
