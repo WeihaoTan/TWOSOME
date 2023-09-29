@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python twosome/virtualhome/inference_ppo_llm_v1_pure.py

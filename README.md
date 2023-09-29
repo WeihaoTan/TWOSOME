@@ -24,7 +24,7 @@ cd virtualhome
 pip install -e .
 ```
 
-# Run the code
+# Train
 ```
 
 # 1. For Tomato Salad environment
@@ -45,6 +45,15 @@ sh scripts/entertainment_ppo.sh # train PPO in Entertainment environment
 
 You can change the attribute, 'normalization-mode' in [sum, toekn, word], corresponding to TWOSOME without normalization, TWOSOME with token normalization and TWOSOME with word normalization
 
+```
+
+# Inference
+```
+1. For food preparation environment
+sh scripts/food_preparation_ppo_llm_inference.sh
+
+2. For entertainment environment
+sh scripts/entertainment_ppo_llm_inference.sh
 ```
 
 # ENV
