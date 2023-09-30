@@ -40,7 +40,7 @@ class LLMAgent(nn.Module):
         super().__init__()
 
         self.load_8bit = load_8bit
-        self.base_model = 'decapoda-research/llama-7b-hf'
+        self.base_model = 'Neko-Institute-of-Science/LLaMA-7B-HF'
         self.lora_r  = 8
         self.lora_alpha = 16
         #self.lora_dropout = 0.05
