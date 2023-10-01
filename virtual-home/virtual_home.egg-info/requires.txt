@@ -1,0 +1,12 @@
+certifi
+chardet
+idna
+numpy
+opencv-python
+Pillow
+requests
+termcolor
+tqdm
+urllib3
+plotly
+networkx

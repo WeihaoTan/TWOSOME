@@ -185,6 +185,7 @@ if __name__ == "__main__":
 
     # TRY NOT TO MODIFY: start the game
     global_step = 0
+    pre_global_step = 0
     start_time = time.time()
     next_obs = torch.Tensor(envs.reset()).to(device)
     next_done = torch.zeros(args.num_envs).to(device)
@@ -370,7 +371,11 @@ if __name__ == "__main__":
         print("SPS:", global_step, (time.time() - start_time))
         writer.add_scalar("charts/SPS", global_step / (time.time() - start_time), global_step)
 
-        agent.save(global_step // 1000, f"{args.record_path}/{run_name}/{args.save_path}")
+        if global_step // 10000 != pre_global_step // 10000: 
+            agent.save(global_step // 10000, f"{args.record_path}/{run_name}/{args.save_path}")
+        pre_global_step = global_step
+    
+    agent.save(global_step // 10000 + 1, f"{args.record_path}/{run_name}/{args.save_path}")
     
     envs.close()
     writer.close()

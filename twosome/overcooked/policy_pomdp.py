@@ -23,6 +23,9 @@ from critic import Critic
 from torch.distributions.categorical import Categorical
 import copy 
 
+root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(root)
+
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 
@@ -81,7 +84,8 @@ class LLMAgent(nn.Module):
             torch_dtype=torch.float16,
             load_in_8bit=self.load_8bit,
             device_map="auto",
-            cache_dir='weights/llama'
+            cache_dir=os.path.join(root, 'weights/llama')
+            #cache_dir='weights/llama'
         )
 
         if not self.load_8bit:
@@ -136,19 +140,21 @@ class LLMAgent(nn.Module):
 
 
     def save(self, epoch, exp_path):
+        print("save model")
         exp_path = os.path.join(exp_path, "epoch_{:04d}".format(epoch))
 
         os.makedirs(exp_path, exist_ok=True)
         # save lora
         self.actor.save_pretrained(exp_path)
         # save critic
-        torch.save(self.critic.v_head.state_dict(), os.path.join(exp_path, "critic.pth"))
+        # torch.save(self.critic.v_head.state_dict(), os.path.join(exp_path, "critic.pth"))
 
     def load(self, exp_path):
+        print("load model")
         lora_weights = exp_path
-        critic_weights = os.path.join(exp_path, "critic.pth")
+        # critic_weights = os.path.join(exp_path, "critic.pth")
         self.actor = self._init_actor(lora_weights).to(self.device)
-        self.critic = self._init_critic(critic_weights).to(self.device)
+        # self.critic = self._init_critic(critic_weights).to(self.device)
     
     def get_value(self, x):
         if type(x) != list:
