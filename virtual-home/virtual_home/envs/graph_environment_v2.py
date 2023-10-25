@@ -197,11 +197,11 @@ class GraphEnvironment(Wrapper):
             "walk to the bathroom", # 2 Walk-Bathroom
             "walk to the bedroom", # 3 Walk-Bedroom
 
-            "reach for the chips", # 4 Walk-Chips
-            "reach for the milk", # 5 Walk-Milk
-            'move to the coffee table', # 6 Walk-CoffeeTable
-            'move to the TV', # 7 Walk-TV
-            'move to the sofa', # 8 Walk-Sofa
+            "walk to the chips", # 4 Walk-Chips
+            "walk to the milk", # 5 Walk-Milk
+            'walk to the coffee table', # 6 Walk-CoffeeTable
+            'walk to the TV', # 7 Walk-TV
+            'walk to the sofa', # 8 Walk-Sofa
 
             "grab the chips", # 9
             "grab the milk", # 10
@@ -212,7 +212,7 @@ class GraphEnvironment(Wrapper):
             "turn on the TV", # 13
             "turn off the TV", # 14
 
-            "take a seat on the sofa", # 15
+            "sit on the sofa", # 15
             "stand up from the sofa" # 16
         ]
 
@@ -335,7 +335,7 @@ class GraphEnvironment(Wrapper):
 
                 elif hold_chips and not hold_milk:
                     if close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. Currently, you have grabbed the chips in hand. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. Currently, you have grabbed the chips in hand. "
 
                         action_list = [
                             0,
@@ -344,7 +344,7 @@ class GraphEnvironment(Wrapper):
                             10
                         ]
                     else:
-                        object_text += "The milk is not within your immediate reach. Currently, you have grabbed the chips in hand. "
+                        object_text += "The milk is not close to you. Currently, you have grabbed the chips in hand. "
 
                         action_list = [
                             0,
@@ -354,7 +354,7 @@ class GraphEnvironment(Wrapper):
                         ]
                 elif not hold_chips and hold_milk:
                     if close_to_chips:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. Currently, you have grabbed the milk in hand. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. Currently, you have grabbed the milk in hand. "
 
                         action_list = [
                             0,
@@ -363,7 +363,7 @@ class GraphEnvironment(Wrapper):
                             9
                         ]
                     else:
-                        object_text += "The chips are not within your immediate reach. Currently, you have grabbed the milk in hand. "
+                        object_text += "The chips are not close to you. Currently, you have grabbed the milk in hand. "
 
                         action_list = [
                             0,
@@ -373,7 +373,7 @@ class GraphEnvironment(Wrapper):
                         ]
                 else:
                     if close_to_chips and close_to_milk:
-                        object_text += "They are within your immediate reach. But you have not grabbed the them. "
+                        object_text += "They are close to you. But you have not grabbed the them. "
 
                         action_list = [
                             0,
@@ -384,7 +384,7 @@ class GraphEnvironment(Wrapper):
                         ]
 
                     elif close_to_chips and not close_to_milk:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. "
 
                         action_list = [
                             0,
@@ -395,7 +395,7 @@ class GraphEnvironment(Wrapper):
                         ]
 
                     elif not close_to_chips and close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. "
 
                         action_list = [
                             0,
@@ -406,7 +406,7 @@ class GraphEnvironment(Wrapper):
                         ]
 
                     else:
-                        object_text += "But they are not within your immediate reach. "
+                        object_text += "But they are not close to you. "
 
                         action_list = [
                             0,
@@ -432,7 +432,7 @@ class GraphEnvironment(Wrapper):
 
                 else:
                     if close_to_chips:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. "
 
                         action_list = [
                             0,
@@ -441,7 +441,7 @@ class GraphEnvironment(Wrapper):
                             9,
                         ]
                     else:
-                        object_text += "The chips are not within your immediate reach. "
+                        object_text += "The chips are not close to you. "
 
                         action_list = [
                             0,
@@ -464,7 +464,7 @@ class GraphEnvironment(Wrapper):
 
                 else:
                     if close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. "
 
                         action_list = [
                             0,
@@ -473,7 +473,7 @@ class GraphEnvironment(Wrapper):
                             10,
                         ]
                     else:
-                        object_text += "The milk is not within your immediate reach. "
+                        object_text += "The milk is not close to you. "
 
                         action_list = [
                             0,

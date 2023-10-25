@@ -314,7 +314,7 @@ class LLMAgent(nn.Module):
 
                 elif hold_chips and not hold_milk:
                     if close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. Currently, you have grabbed the chips in hand. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. Currently, you have grabbed the chips in hand. "
 
                         action_list = [
                             0,
@@ -323,7 +323,7 @@ class LLMAgent(nn.Module):
                             10
                         ]
                     else:
-                        object_text += "The milk is not within your immediate reach. Currently, you have grabbed the chips in hand. "
+                        object_text += "The milk is not close to you. Currently, you have grabbed the chips in hand. "
 
                         action_list = [
                             0,
@@ -333,7 +333,7 @@ class LLMAgent(nn.Module):
                         ]
                 elif not hold_chips and hold_milk:
                     if close_to_chips:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. Currently, you have grabbed the milk in hand. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. Currently, you have grabbed the milk in hand. "
 
                         action_list = [
                             0,
@@ -342,7 +342,7 @@ class LLMAgent(nn.Module):
                             9
                         ]
                     else:
-                        object_text += "The chips are not within your immediate reach. Currently, you have grabbed the milk in hand. "
+                        object_text += "The chips are not close to you. Currently, you have grabbed the milk in hand. "
 
                         action_list = [
                             0,
@@ -352,7 +352,7 @@ class LLMAgent(nn.Module):
                         ]
                 else:
                     if close_to_chips and close_to_milk:
-                        object_text += "They are within your immediate reach. But you have not grabbed the them. "
+                        object_text += "They are close to you. But you have not grabbed the them. "
 
                         action_list = [
                             0,
@@ -363,7 +363,7 @@ class LLMAgent(nn.Module):
                         ]
 
                     elif close_to_chips and not close_to_milk:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. "
 
                         action_list = [
                             0,
@@ -374,7 +374,7 @@ class LLMAgent(nn.Module):
                         ]
 
                     elif not close_to_chips and close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. "
 
                         action_list = [
                             0,
@@ -385,7 +385,7 @@ class LLMAgent(nn.Module):
                         ]
 
                     else:
-                        object_text += "But they are not within your immediate reach. "
+                        object_text += "But they are not close to you. "
 
                         action_list = [
                             0,
@@ -411,7 +411,7 @@ class LLMAgent(nn.Module):
 
                 else:
                     if close_to_chips:
-                        object_text += "The chips are within your immediate reach. But you have not grabbed the chips. "
+                        object_text += "The chips are close to you. But you have not grabbed the chips. "
 
                         action_list = [
                             0,
@@ -420,7 +420,7 @@ class LLMAgent(nn.Module):
                             9,
                         ]
                     else:
-                        object_text += "The chips are not within your immediate reach. "
+                        object_text += "The chips are not close to you. "
 
                         action_list = [
                             0,
@@ -443,7 +443,7 @@ class LLMAgent(nn.Module):
 
                 else:
                     if close_to_milk:
-                        object_text += "The milk is within your immediate reach. But you have not grabbed the milk. "
+                        object_text += "The milk is close to you. But you have not grabbed the milk. "
 
                         action_list = [
                             0,
@@ -452,7 +452,7 @@ class LLMAgent(nn.Module):
                             10,
                         ]
                     else:
-                        object_text += "The milk is not within your immediate reach. "
+                        object_text += "The milk is not close to you. "
 
                         action_list = [
                             0,
@@ -765,11 +765,11 @@ class LLMAgent(nn.Module):
             "walk to the bathroom", # 2
             "walk to the bedroom", # 3
 
-            "reach for the chips", # 4
-            "reach for the milk", # 5
-            'move to the coffee table', # 6
-            'move to the TV', # 7
-            'move to the sofa', # 8
+            "walk to the chips", # 4
+            "walk to the milk", # 5
+            'walk to the coffee table', # 6
+            'walk to the TV', # 7
+            'walk to the sofa', # 8
 
             "grab the chips", # 9
             "grab the milk", # 10
@@ -780,7 +780,7 @@ class LLMAgent(nn.Module):
             "turn on the TV", # 13
             "turn off the TV", # 14
 
-            "take a seat on the sofa", # 15
+            "sit on the sofa", # 15
             "stand up from the sofa" # 16
         ]
 

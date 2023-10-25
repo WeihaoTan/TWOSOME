@@ -165,8 +165,8 @@ class GraphEnvironment(Wrapper):
             "walk to the bathroom", # 2
             "walk to the bedroom", # 3
 
-            "reach for the pancake", # 4
-            "move to the microwave", # 5
+            "walk to the pancake", # 4
+            "walk to the microwave", # 5
 
             "grab the pancake", # 6
 
@@ -267,20 +267,20 @@ class GraphEnvironment(Wrapper):
             if hold_pancake:
                 object_text += "Currently, you have grabbed the pancake in hand. "
                 if close_to_microwave:
-                    object_text += "The microwave is within your immediate reach. "
+                    object_text += "The microwave is close to you. "
                     action_list = [0,2,3,4,7,8,9]
                 else:
-                    object_text += "The microwave is not within your immediate reach. "
+                    object_text += "The microwave is not close to you. "
                     action_list = [0,2,3,4,5]
             else:
                 if close_to_pancake and not close_to_microwave:
-                    object_text += "Currently, you are not grabbing anything in hand. The pancake is within your immediate reach. "
+                    object_text += "Currently, you are not grabbing anything in hand. The pancake is close to you. "
                     action_list = [0,2,3,5,6]
                 elif close_to_microwave and not close_to_pancake:
-                    object_text += "Currently, you are not grabbing anything in hand. The microwave is within your immediate reach. "
+                    object_text += "Currently, you are not grabbing anything in hand. The microwave is close to you. "
                     action_list = [0,2,3,4,8,9]
                 elif not close_to_pancake and not close_to_microwave:
-                    object_text += "Currently, you are not grabbing anything in hand. The pancake and the microwave are not within your immediate reach. "
+                    object_text += "Currently, you are not grabbing anything in hand. The pancake and the microwave are not close to you. "
                     action_list = [0,2,3,4,5]
                 else:
                     if is_microwave_open:
