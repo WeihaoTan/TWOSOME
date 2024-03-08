@@ -3,3 +3,4 @@
 job_scripts/
 weights/
 test*.py
+.DS_Store
