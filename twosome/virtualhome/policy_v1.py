@@ -161,7 +161,7 @@ class LLMAgent(nn.Module):
             
         inputs = self.tokenizer(x, return_tensors="pt", padding=True)
         input_ids = inputs["input_ids"].to(self.device)
-        attention_mask = inputs["attention_mask"]
+        attention_mask = inputs["attention_mask"].to(self.device)
         
         with self.actor.disable_adapter():
             value = self.critic(input_ids, attention_mask=attention_mask)
@@ -184,7 +184,7 @@ class LLMAgent(nn.Module):
         inputs = self.tokenizer(sequence, return_tensors="pt", padding=True)
         input_ids = inputs["input_ids"].to(self.device)
         
-        attention_mask = inputs["attention_mask"]
+        attention_mask = inputs["attention_mask"].to(self.device)
 
         if is_warmup:
             with torch.no_grad():
